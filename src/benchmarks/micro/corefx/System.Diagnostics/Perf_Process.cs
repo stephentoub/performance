@@ -39,5 +39,20 @@ namespace System.Diagnostics
                 process.Dispose();
             }
         }
+
+        [Benchmark]
+        public void ProcessLifecycle()
+        {
+            var psi = new ProcessStartInfo()
+            {
+                FileName = "whoami", // exists on both Windows and Unix
+                RedirectStandardOutput = true // avoid visible output
+            };
+
+            using (var p = Process.Start(psi))
+            {
+                p.WaitForExit();
+            }
+        }
     }
 }
