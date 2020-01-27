@@ -50,7 +50,7 @@ namespace System.Text.RegularExpressions.Tests
         [Benchmark] public int MatchesWord() => _searchWord.Matches(LoremIpsum).Count;
         [Benchmark] public int MatchesWords() => _searchWords.Matches(LoremIpsum).Count;
 
-        [Benchmark] public Match MatchWord() => _searchWords.Match(LoremIpsum);
+        [Benchmark] public Match MatchWord() => _searchWord.Match(LoremIpsum);
         [Benchmark] public string ReplaceWords() => _searchWords.Replace(LoremIpsum, "amoveatur");
         [Benchmark] public string[] SplitWords() => _searchWords.Split(LoremIpsum);
 
